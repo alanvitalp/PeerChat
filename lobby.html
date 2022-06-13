@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="lobby.css" type="text/css" media="screen" />
+  <title>PeerChat</title>
+</head>
+<body>
+
+  <main id="lobby-container">
+    <div id="form-container">
+      <div id="form__container__header">
+        <p>Create or Join a room</p>
+      </div>
+
+      <div id="form__content__wrapper">
+        <form id="join-form">
+          <input type="text" name="invite_link" required autocomplete="off"/>
+          <input type="submit" id="join-submit" value="Join Room" />
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+</body>
+
+<script>
+  let form = document.getElementById("join-form");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    let inviteCode = e.target.invite_link.value
+    window.location = `index.html?room=${inviteCode}`;
+  })
+</script>
+</html>
